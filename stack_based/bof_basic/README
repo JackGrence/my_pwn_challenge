@@ -1,0 +1,2 @@
+#compile command
+$ gcc ./bof.c -o bof.out -fno-stack-protector -z execstack
