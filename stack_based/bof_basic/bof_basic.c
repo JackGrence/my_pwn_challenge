@@ -12,9 +12,13 @@ int main(int argc, char* argv[])
     printf("your input: %s\n", overflowme);
     
     int fail = 0;
-    if(fail)
+    int fd;
+    int len = 0;
+    if(!fail)
     {
-        system("cat flag.txt");
+        fd = open("flag.txt", 0);
+        len = read(fd, overflowme, 128);
+        write(1, overflowme, len);
     }
     return 0;
 }
