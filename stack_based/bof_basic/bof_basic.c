@@ -2,6 +2,15 @@
 #include <string.h>
 #include <stdlib.h>
 
+void print_flag(void)
+{
+    char buf[128];
+    int fd;
+    int len = 0;
+    fd = open("flag.txt", 0);
+    len = read(fd, buf, 128);
+    write(1, buf, len);
+}
 
 int main(int argc, char* argv[])
 {
@@ -10,15 +19,11 @@ int main(int argc, char* argv[])
     printf("overflowme: ");
     gets(overflowme);
     printf("your input: %s\n", overflowme);
-    
+
     int fail = 0;
-    int fd;
-    int len = 0;
     if(fail)
     {
-        fd = open("flag.txt", 0);
-        len = read(fd, overflowme, 128);
-        write(1, overflowme, len);
+        print_flag();
     }
     return 0;
 }
